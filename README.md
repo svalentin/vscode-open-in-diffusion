@@ -1,5 +1,9 @@
 # open-in-diffusion extension
 
+Original author: ryan953  
+Original code: https://github.com/ryan953/vscode-open-in-diffusion  
+This is a fork modified by svalentin over at https://github.com/svalentin/vscode-open-in-diffusion
+
 Open the current file in the Phabricator/Diffusion web UI.
 
 To open a file, run the "Open In Diffusion: Open in Phabricator" command, & see file in your browser!
@@ -24,17 +28,8 @@ This extension relies on reading the `.arcconfig` file thats been committed to t
 }
 ```
 
+If no `phabricator.uri` is set in the `.arcconfig`, a backup option is writing the phabricator URI in the Visual Studio code setting `open-in-diffusion.defaults.phabricator-uri`.
 
 ## Reporting Bugs/Feature Requests
 
 Open an issue or pull request on [github](https://github.com/ryan953/vscode-open-in-diffusion/issues).
-
-## Publishing a new version
-
-```
-npx vsce login
-npm vsce publish -p major|minor|patch
-git push origin
-```
-
-See [Publishing Extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) for more.

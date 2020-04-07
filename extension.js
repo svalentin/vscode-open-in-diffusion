@@ -26,7 +26,10 @@ function removeTrailingSlash(path) {
 }
 
 function getDiffusionDomain(arcconfig) {
-  return arcconfig['phabricator.uri'];
+  if ('phabricator.uri' in arcconfig) {
+    return arcconfig['phabricator.uri'];
+  }
+  return vscode.workspace.getConfiguration().get('open-in-diffusion.defaults.phabricator-uri')
 }
 
 function getProjectCallsign(arcconfig) {
