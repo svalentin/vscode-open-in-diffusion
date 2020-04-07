@@ -18,6 +18,14 @@
     "configuration": {
       "title": "Open In Diffusion",
       "properties": {
+        "open-in-diffusion.workspace-root-is-repo-root": {
+          "type": [
+            "bool"
+          ],
+          "default": false,
+          "scope": "application",
+          "markdownDescription": "Set if the workspace root the repo root. Optimizes searching for arcconfig."
+        },
         "open-in-diffusion.defaults.phabricator-uri": {
           "type": [
             "string",

@@ -1,8 +1,14 @@
 const vscode = require('vscode');
 
 async function getRepoRootOfFile(workspace, document) {
-  // const workspaceFolder = workspace.getWorkspaceFolder(document.uri);
-  // const rootPath = workspaceFolder.uri.path;
+  const configOptimizationKey = 'open-in-diffusion.workspace-root-is-repo-root';
+  if (vscode.workspace.getConfiguration().get(configOptimizationKey)) {
+    const workspaceFolder = workspace.getWorkspaceFolder(document.uri);
+    const rootPath = workspaceFolder.uri.path;
+    return rootPath;
+  }
+
+  // glob search if slow for big repos
   const foundFiles = await workspace.findFiles('**/.arcconfig');
   const argconfigDirs = foundFiles
     .map((file) => file.path.replace(/\/.arcconfig$/, ''))
